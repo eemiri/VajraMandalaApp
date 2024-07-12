@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Admin Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let questionnaire of questionnaires$ | async">
+      <ion-label>
+        <h2>{{ questionnaire.userId }}</h2>
+        <p>Courses Attended: {{ questionnaire.coursesAttended.join(', ') }}</p>
+        <p>Additional Info: {{ questionnaire.additionalInfo }}</p>
+      </ion-label>
+      <ion-button (click)="approveQuestionnaire(questionnaire)">Approve</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
